@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Message : BaseAudioEntity
+    public class MessageBot : BaseAudioEntity
     {
         public string MessageName { get; set; }
         public string MessageBody { get; set; }

@@ -1,22 +1,22 @@
 ﻿
 
 
-namespace Application.TypeServices.Commands
+namespace Application.SubTypes.Commands
 {
-    public class GetTypeServiceQuery<T> : IGetEntityQuery<TypeService> where T : TypeService
+    public class GetSubTypeQuery<T> : IGetEntityQuery<SubType> where T : SubType
     {
         private readonly IParserDbContext _context;
 
 
-        public GetTypeServiceQuery(IParserDbContext context)
+        public GetSubTypeQuery(IParserDbContext context)
         {
             _context = context;
         }
 
-        public async Task<TypeService> GetEntityAsync(long id)
+        public async Task<SubType> GetEntityAsync(long id)
         {
-            TypeService? type = await _context
-        .TypesService
+            SubType? type = await _context
+        .SubTypes
         .SingleOrDefaultAsync(u => u.Id == id);
             if (type != null) 
             {

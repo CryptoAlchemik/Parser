@@ -1,20 +1,20 @@
 ﻿
 
-namespace Application.TypeServices.Commands
+namespace Application.SubTypes.Commands
 {
-    public class DeleteTypeServiceCommand : IDeleteEntityCommand
+    public class DeleteSubTypeCommand : IDeleteEntityCommand
     {
         private readonly IParserDbContext _context;
 
-        public DeleteTypeServiceCommand(IParserDbContext context)
+        public DeleteSubTypeCommand(IParserDbContext context)
         {
             _context = context;
         }
         
         public async Task DeleteEntityAsync(bool isdeleted, long chatid)
         {
-            TypeService? type = await _context
-                .TypesService
+            SubType? type = await _context
+                .SubTypes
                 .SingleOrDefaultAsync(u => u.Id == chatid);
             if (type != null) 
             {

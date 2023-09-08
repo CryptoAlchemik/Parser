@@ -13,7 +13,7 @@ namespace Domain.Entities
         public string Description { get; set; }
         public string Geo { get; set; }
         public int Rating { get; set; }
-        public Type ServiceType { get; set; }
+        public TypeService ServiceType { get; set; }
         public List<Feedback> Feedbacks { get; set; } = new List<Feedback>();
         public List<UserTg> Users { get; set; } = new List<UserTg>();
         public decimal Price { get; set; }

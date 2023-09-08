@@ -14,13 +14,13 @@ namespace Infrastructure.Persistance
             }
         }
 
-        public DbSet<Message> Messages => Set<Message>();
+        public DbSet<MessageBot> Messages => Set<MessageBot>();
 
         public DbSet<Service> Services => Set<Service>();
 
-        public DbSet<SubType> Subtypes => Set<SubType>();
+        public DbSet<SubType> SubTypes => Set<SubType>();
 
-        public DbSet<Type> Types => Set<Type>();
+        public DbSet<TypeService> TypesService => Set<TypeService>();
 
         public DbSet<UserTg> Users => Set<UserTg>();
 
@@ -28,6 +28,14 @@ namespace Infrastructure.Persistance
         {
            await base.SaveChangesAsync();
         }
-        
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=postgres;Trust Server Certificate=true");
+
+            optionsBuilder.LogTo(Console.WriteLine);
+
+        }
+
     }
 }

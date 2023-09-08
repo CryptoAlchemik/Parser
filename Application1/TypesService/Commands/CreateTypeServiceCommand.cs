@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace Application.TypeService.Commands
+namespace Application.TypeServices.Commands
 {
     public class CreateTypeServiceCommand<T> : ICeateEntityCommand<TypeService> where T : TypeService
     {

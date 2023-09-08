@@ -1,9 +1,11 @@
 ﻿
 
 
+using Application.UserTgs.Interfaces;
+
 namespace Application.UserTgs.Commands
 {
-    public class GetUserTgQuery<T> : IGetEntityQuery<UserTg> where T : UserTg
+    public class GetUserTgQuery : IGetUserTgQuery
     {
         private readonly IParserDbContext _context;
 
@@ -13,7 +15,7 @@ namespace Application.UserTgs.Commands
             _context = context;
         }
 
-        public async Task<UserTg> GetEntityAsync(long chatid)
+        public async Task<UserTg?> GetUserTgQueryAsync(long chatid)
         {
             UserTg? user = await _context
         .Users
@@ -22,7 +24,7 @@ namespace Application.UserTgs.Commands
             {
                 return user;
             }
-            else throw new NullReferenceException();
+            else return null;
         }
     }
 }

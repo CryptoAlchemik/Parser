@@ -1,12 +1,11 @@
-﻿using Domain.Entities;
-using Paraser.Common;
+﻿using Paraser.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Paraser.Entities
+namespace Domain.Entities
 {
     public class TypeService : BaseAudioEntity
     {

@@ -1,23 +1,22 @@
 ﻿
-namespace Application.TypeServices.Commands
+namespace Application.SubTypes.Commands
 {
-    public class UpdateTypeServiceCommand<T> : IUpdateEntityCommand<TypeService> where T : TypeService
+    public class UpdateSubTypeCommand<T> : IUpdateEntityCommand<SubType> where T : SubType
     {
         private readonly IParserDbContext _context;
 
-        public UpdateTypeServiceCommand(IParserDbContext context)
+        public UpdateSubTypeCommand(IParserDbContext context)
         { _context = context; }
 
-        public async Task<TypeService> UpdateEntitykAsync(TypeService entity)
+        public async Task<SubType> UpdateEntitykAsync(SubType entity)
         {
-            TypeService? user = await _context
-                .TypesService
+            SubType? user = await _context
+                .SubTypes
                 .SingleOrDefaultAsync(u => u.Id == entity.Id);
 
             if (user != null)
             {
-                user.SubTypes = entity.SubTypes;
-                user.TypeName = entity.TypeName;
+                user.SubTypeName = entity.SubTypeName;
                 user.UpdateTime = entity.UpdateTime;
                 user.IsDeleted = entity.IsDeleted;
  

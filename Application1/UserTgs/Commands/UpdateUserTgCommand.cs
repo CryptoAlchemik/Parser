@@ -2,7 +2,7 @@
 
 namespace Application.UserTgs.Commands
 {
-    public class UpdateUserTgCommand<T> : IUpdateUserTgCommand<UserTg>
+    public class UpdateUserTgCommand<T> : IUpdateUserTgCommand<UserTg> where T : UserTg
     {
         private readonly IParserDbContext _context;
 
@@ -19,10 +19,13 @@ namespace Application.UserTgs.Commands
             {
                 user.IsKicked = entity.IsKicked;
                 user.UserName = entity.UserName;
+                user.FirstName = entity.FirstName;
+                user.LastName = entity.LastName;
                 user.UpdateTime = entity.UpdateTime;
                 user.IsAdmin = entity.IsAdmin;
                 user.IsDeleted = entity.IsDeleted;
                 user.Notification = entity.Notification;
+                user.Services = entity.Services;
 
                 await _context.SaveChangeAsync();
 
